@@ -1,0 +1,85 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset='utf-8'/>
+<title>返回顶部完整代码</title>
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<style type="text/css">
+/*returnTop*/
+p#back-to-top{
+position:fixed;
+display:none;
+bottom:100px;
+right:80px;
+}
+p#back-to-top a{
+text-align:center;
+text-decoration:none;
+color:#000;
+display:block;
+width:64px;
+/*使用CSS3中的transition属性给跳转链接中的文字添加渐变效果*/
+-moz-transition:color 1s;
+-webkit-transition:color 1s;
+-o-transition:color 1s;
+}
+p#back-to-top a:hover{
+color:#979797;
+}
+p#back-to-top a span{
+background:transparent url('/keleyi/pmedia/go-top-keleyi-com.png') no-repeat -10px 15px;
+display:block;
+height:90px;
+width:90px;
+margin-bottom:5px;
+/*使用CSS3中的transition属性给<span>标签背景颜色添加渐变效果*/
+-moz-transition:background 1s;
+-webkit-transition:background 1s;
+-o-transition:background 1s;
+}
+#back-to-top a:hover span{
+background:transparent url('/keleyi/pmedia/go-top-keleyi-com.png') no-repeat -10px 18px;
+}
+</style>
+</head>
+<body>
+<p id="back-to-top"><a href="#top"><span></span>返回顶部</a></p>
+<div style="background-color:#959822; width:100%;height:150px;">请滚动鼠标使页面向下</div>
+<div style="background-color:Green; width:100%;height:150px;">www.keleyi.com</div>
+<div style="background-color:Red; width:100%;height:150px;">欢迎</div>
+<div style="background-color:Yellow; width:100%;height:150px;">hi</div>
+<div style="background-color:Silver; width:100%;height:150px;">柯乐义</div>
+<div style="background-color:Aqua; width:100%;height:150px;">keleyi.com</div>
+<div style="background-color:Fuchsia; width:100%;height:150px;">keleyi</div>
+<div style="background-color:Green; width:100%;height:150px;">keleyi.com</div>
+<div style="background-color:Blue; width:100%;height:150px;">柯乐义</div>
+<div style="background-color:Olive; width:100%;height:150px;">柯乐义 返回顶部</div>
+<div style="background-color:Green; width:100%;height:150px;">A</div>
+<div style="background-color:Purple; width:100%;height:150px;">jquery</div>
+<div style="background-color:Green; width:100%;height:150px;">B</div>
+<div style="background-color:Lime; width:100%;height:150px;">keleyi.com</div>
+<div style="background-color:Orange; width:100%;height:150px;">完整代码</div>
+<script type="text/javascript">
+$(function() {
+	//当滚动条的位置处于距顶部100像素以下时，跳转链接出现，否则消失
+	$(function() {
+		$(window).scroll(function() {
+			if ($(window).scrollTop() > 100) {
+				$("#back-to-top").fadeIn(100);
+			} else {
+				$("#back-to-top").fadeOut(100);
+			}
+		});
+		//当点击跳转链接后，回到页面顶部位置 keleyi.com
+		$("#back-to-top").click(function() {
+			$('body,html').animate({
+				scrollTop: 0
+			}, 0);
+			return false;
+		});
+	});
+});
+</script>
+</body>
+</html>

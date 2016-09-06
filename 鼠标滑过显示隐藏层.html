@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>鼠标滑过显示隐藏层</title>
+	<style>
+		.item{
+	        font-size: 14px;    
+	    }
+	    .item .tips{
+	        position: relative;
+	    }
+	    .con{
+	        color: #999999;
+	        position: absolute;
+	        left: 0;
+	        top: 30px;
+	        width: 270px;
+	        padding: 5px;
+	        line-height: 200%;
+	        border: 1px solid #d2d2d2;
+	        background: #fff;
+	        display: none;
+	    }
+	    .triangle-up:before{
+	        content: "";
+	        position: absolute;
+	        left: 20px;
+	        top: -6px;
+	        width: 0;
+	        height: 0;
+	        border-left: 5px solid transparent;
+	        border-right: 5px solid transparent;
+	        border-bottom: 7px solid white;
+	        z-index: 1;
+	    }
+	    .triangle-up:after{
+	        content: "";
+	        position: absolute;
+	        left: 20px;
+	        top: -8px;
+	        width: 0;
+	        height: 0;
+	        border-left: 5px solid transparent;
+	        border-right: 5px solid transparent;
+	        border-bottom: 7px solid #d2d2d2;
+	    }
+	    /*方法一：兼容IE8*/
+	    .tips:hover .con{
+    		display: block;
+	    }
+
+	</style>
+</head>
+<body>
+	<div class="item">
+		<div class="tips " id="tips">
+			<i class="icon icon-faq">⊙划过我看看⊙</i>
+			<span class="con triangle-up">费率与折扣率根据购买金额区间变化，不同银行卡购买费率可能存在差异，实际产生的费用以基金公司确认为准。</span>
+		</div>
+	</div>
+
+	<script src="https://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){ 
+		// 方法二：jQuery
+	    // $("#tips").find(".icon").hover(function(){
+	    //     $(this).next(".con").fadeIn();
+	    // },function(){
+	    //     $(this).next(".con").fadeOut();
+	    // })
+	});
+	</script>
+</body>
+</html>

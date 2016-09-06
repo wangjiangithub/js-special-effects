@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>404页面5秒后跳转</title>
+</head>
+<body>
+	<div class="container">
+	    <div style="text-align: center; padding: 100px 0 200px">
+	        页面未找到，<span id="countdown404">5</span>秒后返回首页...
+	    </div> 
+	</div>
+	<script src="https://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" charset="utf-8">
+	    (function () {
+	    var el = document.getElementById('countdown404');
+	    setTimeout(cd, 1000);
+	    function cd() {
+	        var s = parseInt(el.innerHTML, 10);
+	        if (s > 1) {
+	            el.innerHTML = ''+(s - 1);
+	            setTimeout(cd, 1000);
+	        } else {
+	            el.innerHTML = '0';
+	            location.href = '/';
+	        }
+	    }
+	    }());
+	</script>
+</body>
+</html>
