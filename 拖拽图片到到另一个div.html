@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="yes" name="apple-touch-fullscreen" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style">
+	<meta content="telephone=no" name="format-detection" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+	<title>拖拽图片到到另一个div</title>
+<style type="text/css">
+#div1, #div2{width:488px;height:70px;padding:10px;border:1px solid #aaaaaa;}
+</style>
+<script type="text/javascript">
+
+function drag(e){
+	e.dataTransfer.setData("Text",e.target.id);
+
+}
+function allowDrop(e){
+	e.preventDefault();
+}
+function drop(e){
+	e.preventDefault();
+	var data=e.dataTransfer.getData("Text");
+	e.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body>
+	<!-- 不能兼容IE8及以下版本 -->
+
+<p>请把图片拖放到矩形中：</p>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+	<img id="drag1" src="images/1.png" draggable="true" ondragstart="drag(event)" />
+</div>
+<br />
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+
+</body>
+</html>
